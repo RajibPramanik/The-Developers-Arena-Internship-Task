@@ -1,3 +1,4 @@
+# Week 2: JavaScript Fundamentals
 # Task Manager - JavaScript Fundamentals Project
 
 A responsive, interactive task management application built with vanilla JavaScript.
