@@ -1,3 +1,4 @@
+# Week 1: HTML & CSS Foundations
 # 🌐 Responsive Personal Portfolio Website  
 
 ## 📘 Description  
