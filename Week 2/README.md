@@ -37,8 +37,8 @@ A responsive, interactive task management application built with vanilla JavaScr
 - User feedback
 
 ## File Structure
-task-manager/
-├── index.html # Main HTML structure
-├── styles.css # Styling and responsive design
-├── script.js # JavaScript functionality
+task-manager/<br>
+├── index.html # Main HTML structure<br>
+├── styles.css # Styling and responsive design<br>
+├── script.js # JavaScript functionality<br>
 └── README.md # Project documentation
