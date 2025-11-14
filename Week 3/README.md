@@ -20,7 +20,7 @@ It allows users to manage books, register members, borrow and return books, and 
 
 ## 🧰 Tools Used
 - **Java SE (JDK 17+)**
-- **VS Code / IntelliJ IDEA** (Recommended IDE)
+- **VS Code / IntelliJ IDEA** 
 - **Command Prompt / Terminal** for execution
 
 ---
