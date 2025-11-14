@@ -1,8 +1,8 @@
 # Week 2: JavaScript Fundamentals
-# 📚 Library Management System (Java)
+# 📚 Library Management System 
 
 ## 📖 Description
-A simple console-based **Library Management System** built using **Core Java**.  
+A simple console-based **Library Management System** built using **Java**.  
 It allows users to manage books, register members, borrow and return books, and calculate fines — all through a text-based menu interface.
 
 ---
