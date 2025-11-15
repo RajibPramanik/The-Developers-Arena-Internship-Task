@@ -1,4 +1,4 @@
-# Week 4✅: Frontend Integration & Final Project
+# Week 4: Frontend Integration & Final Project
 
 # Weather Application Full Stack Integration
 A simple, responsive Weather Application that fetches real-time data from the OpenWeatherMap API and displays it with a clean UI. Perfect as a Week-4 final project to demonstrate frontend–backend integration, async JavaScript, and deployment on GitHub Pages.
