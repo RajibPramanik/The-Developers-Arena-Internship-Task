@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherFlow - Live Weather App</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loader">
+            <i class="fas fa-cloud-sun"></i>
+            <p>Loading WeatherFlow...</p>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <h1><i class="fas fa-cloud-sun"></i> WeatherFlow</h1>
+                <p>Real-time weather updates for any location</p>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="cityInput" placeholder="Enter city name..." class="search-input">
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button id="locationBtn" class="location-btn" title="Use Current Location">
+                            <i class="fas fa-location-crosshairs"></i>
+                        </button>
+                    </div>
+                    <div class="search-error" id="searchError"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Weather Section -->
+        <section class="current-weather" id="currentWeather">
+            <div class="container">
+                <div class="weather-card">
+                    <div class="weather-header">
+                        <h2 id="cityName">Search for a city</h2>
+                        <p id="currentDate" class="date"></p>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature-section">
+                            <div class="temp-icon">
+                                <i class="fas fa-temperature-high" id="weatherIcon"></i>
+                            </div>
+                            <div class="temp-info">
+                                <div class="current-temp" id="currentTemp">--°</div>
+                                <div class="weather-desc" id="weatherDescription">Enter city to see weather</div>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind Speed</span>
+                                <strong id="windSpeed">-- km/h</strong>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity</span>
+                                <strong id="humidity">--%</strong>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-compress-alt"></i>
+                                <span>Pressure</span>
+                                <strong id="pressure">-- hPa</strong>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Visibility</span>
+                                <strong id="visibility">-- km</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forecast Section -->
+        <section class="forecast-section" id="forecastSection">
+            <div class="container">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast items will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Info Section -->
+        <section class="additional-info" id="additionalInfo">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-sun"></i>
+                        <h4>Sunrise & Sunset</h4>
+                        <div class="sun-times">
+                            <div class="sun-time">
+                                <span>Sunrise</span>
+                                <strong id="sunrise">--:--</strong>
+                            </div>
+                            <div class="sun-time">
+                                <span>Sunset</span>
+                                <strong id="sunset">--:--</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h4>Feels Like</h4>
+                        <div class="feels-like" id="feelsLike">--°</div>
+                        <p>What the temperature actually feels like</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>Chance of Rain</h4>
+                        <div class="rain-chance" id="rainChance">--%</div>
+                        <p>Probability of precipitation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Status -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="api-status">
+                    <span class="status-indicator" id="apiStatus"></span>
+                    <span>API: OpenWeatherMap</span>
+                </div>
+                <p>&copy; 2025 WeatherFlow - JavaScript API Integration Project</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
