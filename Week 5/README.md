@@ -2,7 +2,7 @@
 # **Build an Advanced E-commerce Frontend**
 
 ## **📌 Overview**
-This project is a modern, responsive **E-commerce Frontend** that showcases a complete product browsing experience. It uses **CSS Grid**, **Flexbox**, **CSS animations**, and **JavaScript ES6+** to create an interactive user interface. The application includes a product catalog, dynamic shopping cart, and optimized loading performance. The build process uses **npm** and tools like **Webpack/Parcel** to bundle assets and improve efficiency.
+This project is a front-end application for an Advanced E-commerce Platform built with modern web technologies. It showcases how to build a responsive and interactive product catalog, implement a shopping cart, and optimize performance using advanced techniques such as CSS Grid, Flexbox, JavaScript ES6+, and modern frontend tools.
 
 **Sources:**
 * CSS Grid (MDN): [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout)
