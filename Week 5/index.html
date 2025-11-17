@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSmart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-store"></i> ShopSmart</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-icon" id="cartIcon" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#products" class="mobile-nav-link">Products</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Discover Amazing Products</h2>
+            <p>Quality items at unbeatable prices with fast delivery</p>
+            <button class="cta-btn" onclick="scrollToProducts()">Shop Now</button>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="filter-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="filter-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="electronics">Electronics</button>
+                    <button class="filter-btn" data-filter="clothing">Clothing</button>
+                    <button class="filter-btn" data-filter="home">Home & Garden</button>
+                    <button class="filter-btn" data-filter="sports">Sports</button>
+                </div>
+                
+                <div class="sort-options">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="default">Sort by Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Loading products...</p>
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                    <div class="image-badges">
+                        <span class="badge new-badge" id="newBadge" style="display: none;">New</span>
+                        <span class="badge sale-badge" id="saleBadge" style="display: none;">Sale</span>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-rating">
+                        <div class="stars" id="modalStars"></div>
+                        <span class="rating-text" id="modalRatingText"></span>
+                    </div>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+                    
+                    <div class="modal-features" id="modalFeatures">
+                        <h4>Key Features:</h4>
+                        <ul id="modalFeaturesList"></ul>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" id="decreaseQty">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button class="qty-btn" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="add-to-cart-btn" id="addToCartBtn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" id="wishlistBtn">
+                            <i class="far fa-heart"></i> Wishlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span>$<span id="cartSubtotal">0.00</span></span>
+                </div>
+                <div class="cart-shipping">
+                    <span>Shipping:</span>
+                    <span id="shippingCost">$5.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span>$<span id="cartTotal">0.00</span></span>
+                </div>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <i class="fas fa-lock"></i> Proceed to Checkout
+            </button>
+            <button class="continue-shopping-btn" id="continueShoppingBtn">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Product added to cart!</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-store"></i> ShopSmart</h3>
+                    <p>ShopSmart trusted partner for quality products at great prices. We offer a wide range of carefully selected items to meet all your needs.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <a href="#shipping">Shipping Info</a>
+                    <a href="#returns">Returns & Exchanges</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#support">Support Center</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@shopsmart.com</p>
+                        <p><i class="fas fa-phone"></i> +91 12345-67891</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Odisha, India, Pin 12345</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShopSmart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
