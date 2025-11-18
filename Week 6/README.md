@@ -36,4 +36,3 @@ This project is a *RESTful Blog System API* built using *Spring Boot*. It suppor
 - ✅ Database integration using JPA
 - ✅ Tested using Postman
 
----
