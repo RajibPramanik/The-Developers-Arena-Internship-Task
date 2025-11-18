@@ -20,3 +20,7 @@ Build a Complete Weather Application that fetches data from API and displays wit
 ## Week 5: Advanced Frontend Development
 `🎯 Project:`
 Build an Advanced E-commerce Frontend with product catalog, shopping cart, and responsive design
+
+## Week 6: Spring Boot Fundamentals
+`🎯 Project:`
+Build a RESTful API for a Blog System with Spring Boot including posts, comments, and users
