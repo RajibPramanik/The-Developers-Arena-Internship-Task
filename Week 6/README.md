@@ -2,6 +2,7 @@
 
 # 📝 Blog System REST API - Spring Boot
 This project is a *RESTful Blog System API* built using *Spring Boot*. It supports CRUD operations for Posts, Comments, and Users, and uses *Spring Data JPA* for database access.
+
 ---
 
 # 📚 Topics Covered
