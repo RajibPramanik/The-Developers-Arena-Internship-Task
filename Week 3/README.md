@@ -1,4 +1,4 @@
-# Week 2: JavaScript Fundamentals
+# Week 2: Java Programming Basics
 # 📚 Library Management System 
 
 ## 📖 Description
